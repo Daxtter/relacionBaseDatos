@@ -1,0 +1,16 @@
+{
+  "name": "miconexionsql",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Manuel Nunez",
+  "license": "ISC",
+  "dependencies": {
+    "all": "^0.0.0",
+    "mysql2": "^3.9.4",
+    "sequelize": "^6.37.2"
+  }
+}

@@ -1,9 +1,9 @@
 'use strict';
 
+
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-
     await queryInterface.bulkInsert('activos',[{
       numSerie: 1234,
       numInventario: 4213,
@@ -45,15 +45,23 @@ module.exports = {
       updatedAt: new Date()
     },
   ])
-    /**
-     * Add seed commands here.
-     *
-     * Example:
-     * await queryInterface.bulkInsert('People', [{
-     *   name: 'John Doe',
-     *   isBetaMember: false
-     * }], {});
-    */
+
+  /*
+    let ubicacionPrimera = await models.Ubicacion.findOne({
+      where:{
+        descripcion:'Laboratorio A'
+      }
+    });
+    console.log(ubicacionPrimera);
+    let activosIngresar = await models.Activo.findOne({
+      where:{
+        numSerie:1234
+      }
+    })
+    console.log(activosIngresar)
+    activosIngresar.setUbicacion(ubicacionPrimera);
+    
+  */
   },
 
   async down (queryInterface, Sequelize) {

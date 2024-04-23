@@ -2,29 +2,26 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Activos', {
+    await queryInterface.createTable('Usuarios', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      numSerie: {
+      AccesoID: {
         type: Sequelize.INTEGER,
-        allowNull: false,
-        unique: true
+        references:{
+          model: "accesos",
+          key: "id"
+        }
       },
-      numInventario: {
+      IdentificadorID: {
         type: Sequelize.INTEGER,
-        unique: true
-      },
-      descripcion: {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
-      imagen: {
-        type: Sequelize.BLOB,
-        allowNull: true
+        references:{
+          model: "identificadores",
+          key: "id"
+        }
       },
       createdAt: {
         allowNull: false,
@@ -37,6 +34,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Activos');
+    await queryInterface.dropTable('Usuarios');
   }
 };

@@ -11,6 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       models.Activo.belongsToMany(models.Tag,{through:models.ActivoconTag});
+      models.Activo.belongsTo(models.Responsable,{foreignKey: "responsableID"});
+      models.Activo.belongsTo(models.Ubicacion,{foreignKey: "ubicacionID"});
     }
   }
   Activo.init({
@@ -27,6 +29,14 @@ module.exports = (sequelize, DataTypes) => {
     type: DataTypes.STRING,
     allowNull: false
   },
+  ubicacionID:{
+    type:DataTypes.INTEGER,
+    allowNull: false
+  },
+  responsableID:{
+    type:DataTypes.INTEGER,
+    allowNull: false
+  },
   imagen:{
     type: DataTypes.BLOB,
     allowNull: true
@@ -35,10 +45,6 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'Activo',
   });
-  /*
-  Activo.associate = function(models){
-    Activo.belongsToMany(models.Tag,{through: models.ActivoconTag});
-  };
-  */
+  
   return Activo;
 };

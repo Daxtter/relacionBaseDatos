@@ -1,5 +1,5 @@
 'use strict';
-
+const models = require( "../models");
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
@@ -42,15 +42,14 @@ module.exports = {
     }
   ]);
 
-    /**
-     * Add seed commands here.
-     *
-     * Example:
-     * await queryInterface.bulkInsert('People', [{
-     *   name: 'John Doe',
-     *   isBetaMember: false
-     * }], {});
-    */
+    
+  let Responsable  = await models.Responsable.findAll();
+  let activos = await models.Activo.findAll();
+  await activos[0].setResponsable(Responsable[0]);
+  await activos[1].setResponsable(Responsable[1]);
+  await activos[2].setResponsable(Responsable[2]);
+  await activos[3].setResponsable(Responsable[3]);
+  await activos[4].setResponsable(Responsable[4]);
   },
 
   async down (queryInterface, Sequelize) {

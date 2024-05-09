@@ -10,9 +10,9 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      models.Activo.belongsToMany(models.Tag,{through:models.ActivoconTag});
-      models.Activo.belongsTo(models.Responsable,{foreignKey: "responsableID"});
-      models.Activo.belongsTo(models.Ubicacion,{foreignKey: "ubicacionID"});
+      models.Activo.belongsToMany(models.Tag,{through:models.ActivoconTag,onDelete: 'CASCADE', onUpdate: 'CASCADE'});
+      models.Activo.belongsTo(models.Responsable,{foreignKey: "responsableID",onDelete: 'CASCADE', onUpdate: 'CASCADE' });
+      models.Activo.belongsTo(models.Ubicacion,{foreignKey: "ubicacionID",onDelete: 'CASCADE', onUpdate: 'CASCADE' });
     }
   }
   Activo.init({
@@ -31,11 +31,11 @@ module.exports = (sequelize, DataTypes) => {
   },
   ubicacionID:{
     type:DataTypes.INTEGER,
-    allowNull: false
+    allowNull: true
   },
   responsableID:{
     type:DataTypes.INTEGER,
-    allowNull: false
+    allowNull: true
   },
   imagen:{
     type: DataTypes.BLOB,

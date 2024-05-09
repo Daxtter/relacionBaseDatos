@@ -6,13 +6,19 @@ module.exports = {
     
     
     await queryInterface.bulkInsert("Ubicaciones",[{
-      descripcion:'Laboratorio A'
+      descripcion:'Laboratorio A',
+      createdAt: new Date(),
+      updatedAt: new Date()
     },
     {
-      descripcion:"Laboratorio B"
+      descripcion:"Laboratorio B",
+      createdAt: new Date(),
+      updatedAt: new Date()
     },
     {
-      descripcion:"Laboratorio C"
+      descripcion:"Laboratorio C",
+      createdAt: new Date(),
+      updatedAt: new Date()
     }])
     let ubicacion = await models.Ubicacion.findAll();
     let activos = await models.Activo.findAll();

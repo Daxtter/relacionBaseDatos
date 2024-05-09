@@ -12,7 +12,7 @@ module.exports = {
       descripcion: {
         type: Sequelize.STRING
       },
-      magen: {
+      imagen: {
         type: Sequelize.BLOB
       },
       createdAt: {

@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Ubicacion.init({
     descripcion: DataTypes.STRING,
-    magen: DataTypes.BLOB
+    imagen: DataTypes.BLOB
   }, {
     sequelize,
     modelName: 'Ubicacion',

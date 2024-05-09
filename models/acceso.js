@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      models.Acceso.belongsToMany(models.Identificador,{through:models.Usuario});
+      models.Acceso.belongsToMany(models.Identificador,{through:models.Usuario,onDelete: 'CASCADE', onUpdate: 'CASCADE' });
     }
   }
   Acceso.init({

@@ -1,5 +1,6 @@
 
 let express =  require('express');
+const pasaport = require("./miPassport.js");
 const activo = require( "./Routes/activos.js");
 const acceso = require( "./Routes/acceso.js");
 const activoConTag = require( "./Routes/activoConTag.js");
@@ -8,6 +9,7 @@ const responsable = require( "./Routes/responsable.js");
 const tag = require( "./Routes/tag.js");
 const ubicacion = require( "./Routes/ubicacion.js");
 const usuarios = require("./Routes/usuarios.js")
+const login =require("./login.js");
 const https = require('https');
 const fs = require('fs');
 const cors = require( 'cors' );
@@ -28,6 +30,11 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.post("/login",login.login); // Para el login 
+
+app.use(pasaport.authenticate('jwt',{session: false}));
+
+
 app.use("/activos",activo);
 app.use("/accesos",acceso);
 app.use("/activoContags",activoConTag);
@@ -36,6 +43,11 @@ app.use("/responsables",responsable);
 app.use("/tags",tag);
 app.use("/ubicaciones",ubicacion);
 app.use("/usuarios",usuarios);
+app.get("/pasaporte", (req, res) => {
+    res.end("Hola Usuario Autenticado");
+});
+
+
 /*
 app.get("/activo",activo.findAll);
 app.get("/activo/:id",activo.findById);

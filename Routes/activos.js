@@ -1,7 +1,9 @@
 const express =require('express');
 const router = express.Router();
 const activo = require('../controller/controllerActivo.js');
+const variableGlobal = require("../activarRutas.js");
 //Se imlementa lo que se utilizará en cada método
+
 router.get('/',activo.findAll);
 router.get('/:id',activo.findById);
 router.post('/',activo.post);

@@ -12,7 +12,7 @@ module.exports = {
       nombre: {
         type: Sequelize.STRING
       },
-      ip: {
+      email: {
         type: Sequelize.STRING
       },
       createdAt: {

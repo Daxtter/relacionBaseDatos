@@ -5,14 +5,14 @@ module.exports = {
   async up (queryInterface, Sequelize) {
 
     await queryInterface.bulkInsert("Identificadores",[{
-      nombre:"Jose perez",
-      ip: "82.129.8.1",
+      nombre:"Manuel",
+      email: "luis.nunez25@uabc.edu.mx",
       createdAt: new Date(),
       updatedAt: new Date()
     },
     {
-      nombre:"MackBock air",
-      ip:"83.120.7.1",
+      nombre:"Profesor",
+      email:"molguin@uabc.edu.mx",
       createdAt: new Date(),
       updatedAt: new Date()
     }])

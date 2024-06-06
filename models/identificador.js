@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Identificador.init({
     nombre: DataTypes.STRING,
-    ip: DataTypes.STRING
+    email: DataTypes.STRING
   }, 
   {
     sequelize,
